@@ -27,7 +27,7 @@
                 };
             ready(function () {
                 var div = domConstruct.create("div", {
-                    style: "position:fixed;bottom:5px;top:50%;right:5px;width:50%;border:1px solid green;padding:5px;background:#fff;overflow:auto;text-align:center;"
+                    style: "position:fixed;bottom:5px;top:50%;right:5px;width:50%;border:1px solid #0F0;padding:5px;background:#fff;overflow:auto;text-align:center;"
                 }, document.body),
 
                 closer = domConstruct.create("button", {
