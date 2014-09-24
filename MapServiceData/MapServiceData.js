@@ -1,7 +1,7 @@
 (function () {
-    var url = "http://js.arcgis.com/3.8/", scr1, colorhash = {};
+    var url = "http://js.arcgis.com/3.10/", scr1, colorhash = {};
     function getFullLink(link) {
-        var newLink = '', wl = window.location;
+        var newLink = "", wl = window.location;
         if (link.indexOf(wl.protocol) === 0) { return link; }
         newLink += wl.protocol + "//";
         if (link.indexOf(wl.hostname) === 0) { return newLink + link; }
@@ -11,18 +11,18 @@
     }
     function getColor(item) {
         if (colorhash[item]) { return colorhash[item]; }
-        colorhash[item] = '#' + (0x1000000 + (Math.random()) * 0xffffff).toString(16).substr(1, 6);
+        colorhash[item] = "#" + (0x1000000 + (Math.random()) * 0xffffff).toString(16).substr(1, 6);
         return colorhash[item];
     }
     function getCompColor(item) {
         var col = colorhash[item],
             newcol = "",
-            coltbl = "fedcba98".indexOf(col.substr(1,1)) > -1 ? { f: "7", e: "6", d: "5", c: "4", b: "3", a: "2", "9": "1", "8": "0", "7": "0", "6": "0", "5": "0", "4": "0", "3": "0", "2": "0", "1": "0", "0": "0" } :  { f: "f", e: "f", d: "f", c: "f", b: "f", a: "f", "9": "f", "8": "f", "7": "f", "6": "e", "5": "d", "4": "c", "3": "b", "2": "a", "1": "9", "0": "8" }, 
-            c;
-        for (c = 0; c < col.length; c++) {
-            newcol += c % 2 === 1 ? coltbl[col.substr(c, 1)] : col.substr(c, 1);
-        }
-        return newcol;
+			coltbl = "fedcba98".indexOf(col.substr(1,1)) > -1 ? "0000000001234567" : "89abcdefffffffff", 
+			c; 
+		for (c = 0; c < col.length; c++) { 
+			newcol += c%2 === 1 ? coltbl[parseInt(col.substr(c,1), 16)] : col.substr(c, 1); 
+		} 
+		return newcol; 
     }
     function loadMe() {
         require([
@@ -31,10 +31,10 @@
             "dojo/dom-attr",
             "esri/request"
         ], function (dojoQuery, domConstruct, domAttr, esriRequest) {
-            var review = function (list, index) {
+            var review = function (list) {
                 var jsonUrl, node;
-                if (index < list.length) {
-                    node = list[index];
+                if (list.length) {
+                    node = list.shift();
                     jsonUrl = domAttr.get(node, "href");
                     jsonUrl = getFullLink(jsonUrl);
                     esriRequest({
@@ -42,33 +42,35 @@
                         handleAs: "json",
                         content:{f:"json"}
                     }).then(function (response) {
-                        var wkid, sp;
+                        var wkid, wkt, sp;
                         if (!response.spatialReference) { return; }
-                        sp = response.spatialReference; wkid = sp.latestWkid || sp.wkid || null;
-                        if (wkid === null) {
+                        sp = response.spatialReference; 
+						wkid = sp.latestWkid || sp.wkid || null;
+						wkt = sp.latestWkt || sp.wkt || null;
+                        if (wkid === null && wkt === null) {
                             domConstruct.create("span", {
-                                innerHTML: "&nbsp;No valid wkid available &nbsp;"
+                                innerHTML: "&nbsp;No valid spatial reference available &nbsp;"
                             }, node, "after");
                         }
                         else {
                             domConstruct.create("a", {
-                                href: "http://spatialreference.org/ref/?search=" + wkid,
-                                innerHTML: "WKID: " + wkid,
-                                style:"background:" + getColor(wkid) + ";color:" + getCompColor(wkid) + ";"
+                                href: wkid ? "http://spatialreference.org/ref/?search=" + wkid : "javascript:void(0);",
+                                innerHTML: wkid ? "WKID: " + wkid : "WKT: " + wkt,
+                                style:"background:" + getColor(wkid || wkt) + ";color:" + getCompColor(wkid || wkt) + ";"
                             }, node, "after");
                         }
                         domConstruct.create("span", {
                             innerHTML: "&nbsp;" + (response.singleFusedMapCache ? "tiled" : "dynamic") + "&nbsp;"
                         }, node, "after");
 
-                        review(list, ++index);
+                        review(list);
                     });
                     
                 }
             },
-            linkList = dojoQuery('a[href$="MapServer"]');
+            linkList = dojoQuery("a[href$=\"MapServer\"],a[href$=\"FeatureServer\"],a[href$=\"ImageServer\"],a[href$=\"MobileServer\"]");
             
-            review(linkList, 0);
+            review(linkList);
         });
     }
     function scriptLoaded(url) {
