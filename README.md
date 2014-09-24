@@ -29,9 +29,10 @@ Each tool as its own basic use policy. They all involve navigating your web brow
 
 ## Requirements
 
-- Browser that support the use of bookmarklets (including security settings).
+- Desktop browser (IE8+, Chrome, Firefox)
+- Security settings that support bookmarklets.
 - Access to [ESRI JavaScript API library](http://js.arcgis.com/3.8/).
-- Access to an ArcGIS Server REST endpoint.
+- Access to an ArcGIS Server REST endpoint in browser.
 
 ## Resources
 
