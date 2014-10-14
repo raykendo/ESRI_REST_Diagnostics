@@ -4,13 +4,25 @@ A list of JavaScript bookmarklets that can be used to test ArcGIS Server Map Ser
 
 ## Features
 
-The bookmarklets provided add extra information to the ArcGIS Server REST endpoint pages, and allow you to interact with the service. Currently available features include:
+The bookmarklets provided add extra information to the ArcGIS Server REST endpoint pages. They work by scraping the underlying data and adding the results to the current HTML REST Service page. Some of features include:
 
-- Map Service Data Display
-- REST Service Search
-- Query Field Testing
-- Geometry Helper
+- Folder level:
+  - Extract Map Service data for each Map and Feature Service in the folder.
+  - Compare Spatial References of all Map and Feature Services in a folder.
+- Map Service level:
+  - Extract Layer data for each layer in the service.
+  - Get counts of features and shapes for each layer in the service.
+- Map Service Layer level
+  - Test each field for content and see how fast the results return.
+- Layer Query REST Page
+  - Search REST Services for specific field or text string
+  - Adding ArcGIS REST API compliant geometry json to queries, based on a map of the map service.
 
+Some features in the works
+- Query Helper similar to Select By Attributes control in ArcMap
+- View a map on the REST Service page.
+- More items on request.
+  
 ## Instructions
 
 ### Installation
@@ -31,7 +43,7 @@ Each tool as its own basic use policy. They all involve navigating your web brow
 
 - Desktop browser (IE8+, Chrome, Firefox)
 - Security settings that support bookmarklets.
-- Access to [ESRI JavaScript API library](http://js.arcgis.com/3.8/).
+- Access to [ESRI JavaScript API library](http://js.arcgis.com/3.10/).
 - Access to an ArcGIS Server REST endpoint in browser.
 
 ## Resources
