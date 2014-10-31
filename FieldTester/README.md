@@ -22,7 +22,7 @@ Installation on the browser is as simple as adding a bookmark. From the [bookmar
 
 Navigate to an ArcGIS Server REST service endpoint in your browser. Drill down to a Map Service or a Feature Service layer. [Click here for an example](http://sampleserver6.arcgisonline.com/arcgis/rest/services/Census/MapServer/3). Call the bookmarklet from your bookmark bar, and let it run.
 
-The tool adds a table to the REST Service HTML page, and systematically queries for the count of each field value that isn't null. The table then displays field names, aliases, field types, number of non-null results, and the time it took for ArcGIS Server to return the count.
+The tool systematically queries for the count of each field value that isn't null, then notes annotates each field with the number of features with values, as well as the number of milliseconds it took to return the features.
 
 ## Requirements
 

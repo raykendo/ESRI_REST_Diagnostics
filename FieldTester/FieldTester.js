@@ -1,7 +1,6 @@
 (function () {
     var url = window.location.href,
-		d = document,
-		node;
+		d = document;
 	// ajax function from https://gist.github.com/Xeoncross/7663273
 	function ajax(u, callback, data, x) {
 		try {
@@ -17,44 +16,37 @@
 			window.console && console.log(e);
 		}
 	}
-	function queryMe (f) { 
+	function queryMe (f, nodes) { 
 		if (!f.length) { return; }
 		var field = f.shift(),
+			node = nodes.shift(),
 			params = "/query?where=not+field+is+null&returnGeometry=false&returnCountOnly=true&f=json".replace("field", field.name),
 			timeCheck = Date.now();
 		ajax(url + params,
 			function (response) {
 				response = JSON.parse(response);
-				var tr = d.createElement("tr");
-				tr.innerHTML = "<td>" + [field.name, field.alias, field.type, response.count, Date.now() - timeCheck].join("</td><td>") + "</td>";
+				var tr = d.createElement("ul");
+				tr.innerHTML = "<li>" + ["<b>Features with values: </b>" + response.count + (!response.count ? "<b style=\"color:#f00;\"> !!!</b>":""), "<b>Response Time: </b>" + (Date.now() - timeCheck) + "ms"].join("</li><li>") + "</li>";
 				node.appendChild(tr);
-				if (f.length) {	queryMe(f); }
+				if (f.length) {	queryMe(f, nodes); }
 			});
+	}
+	function getFieldList () {
+		var uls = d.getElementsByTagName("ul"),
+			labels = [].map.call(uls, function (node) { var h = node; while (h.previousSibling) { h = h.previousSibling; if (h.tagName === "B") break; } return h.innerHTML;}),
+			i;
+		for (i = uls.length - 1; i > -1; i--) {
+			if (labels[i] === "Fields: ") {
+				return [].map.call(uls[i].children, function (j) {return j;});
+			}
+		}
+		return null;
 	}
 	function onLoad(response) {
 		response = JSON.parse(response);
 		if (response.fields) {
-			// create div
-			var div = d.createElement("div");
-			div.setAttribute("style", "position:fixed;bottom:5px;top:50%;right:5px;width:50%;border:1px solid #0F0;padding:5px;background:#fff;overflow:auto;text-align:center;");
-			d.body.appendChild(div);
-			// create close button
-			var closer = d.createElement("button");
-			closer.setAttribute("type", "button");
-			closer.setAttribute("style", "float:right;");
-			closer.onclick = function () { d.body.removeChild(div) };
-			closer.innerHTML = "close";
-			div.appendChild(closer);
-			// create results table
-			var table = d.createElement("table");
-			table.setAttribute("style", "position:relative;margin:0 auto;");
-			table.innerHTML = "<thead><tr><th>" + ["Field Name", "Alias", "Type", "# values not null", "Return Time (ms)"].join("</th><th>") + "</th></tr></thead>";
-			div.appendChild(table);
-			// add table body.
-			node = d.createElement("tbody");
-			table.appendChild(node);
 			// run query
-			queryMe(response.fields);
+			queryMe(response.fields, getFieldList());
 		}
 	}
     
