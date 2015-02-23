@@ -1,10 +1,10 @@
 # Field Tester (ESRI REST Diagnostics) 
 
-A bookmarklet to get field information on ArcGIS Server Map Service and Feature Service layers.
+Bookmarklets to test for field values populated by data.
 
 ## Features
 
-The bookmarklet provides data count and return times for each field within an ArcGIS Server Map Service or Feature Service layer. You can use it to test data integrity and of each field, and roughly expected return times for queries. 
+The bookmarklets count the number of features with values and return server response times for each field within an ArcGIS Server Map Service or Feature Service layer. The first tests for non-null data, while the second also checks for empty strings. You can use these bookmarklets to test data integrity and of each field, and roughly expected return times for queries. 
 
 ## Instructions
 
@@ -22,7 +22,7 @@ Installation on the browser is as simple as adding a bookmark. From the [bookmar
 
 Navigate to an ArcGIS Server REST service endpoint in your browser. Drill down to a Map Service or a Feature Service layer. [Click here for an example](http://sampleserver6.arcgisonline.com/arcgis/rest/services/Census/MapServer/3). Call the bookmarklet from your bookmark bar, and let it run.
 
-The tool systematically queries for the count of each field value that isn't null, then notes annotates each field with the number of features with values, as well as the number of milliseconds it took to return the features.
+The bookmarklets systematically queries for the count of each field value that isn't null, then adds notes to each field with the number of features with values, as well as the number of milliseconds it took to return the features. The first bookmarklet screens out null values, while the second screens out null and empty string values.
 
 ## Requirements
 
