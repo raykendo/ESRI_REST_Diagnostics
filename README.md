@@ -12,6 +12,7 @@ The bookmarklets provided add extra information to the ArcGIS Server REST endpoi
 - Map Service level:
   - [Extract Layer data for each layer in the service.](https://github.com/raykendo/ESRI_REST_Diagnostics/tree/master/MapLayerData)
   - [Get counts of features and shapes for each layer in the service.](https://github.com/raykendo/ESRI_REST_Diagnostics/tree/master/MapLayerCount)
+  - [Test whether tiles have been built at different levels of detail in a tiled map service.](https://github.com/raykendo/ESRI_REST_Diagnostics/tree/master/TileTester)
 - Map Service Layer level
   - [Test each field for number of non-empty results.](https://github.com/raykendo/ESRI_REST_Diagnostics/tree/master/FieldTester)
   - [Test each field for content and see how fast the results return.](https://github.com/raykendo/ESRI_REST_Diagnostics/tree/master/FieldTester)
@@ -45,12 +46,12 @@ Each tool as its own basic use policy. They all involve navigating your web brow
 
 - Desktop browser (IE8+, Chrome, Firefox)
 - Security settings that support bookmarklets.
-- Access to [ESRI JavaScript API library](http://js.arcgis.com/3.10/).
 - Access to an ArcGIS Server REST endpoint in browser.
+- Some tools require access to [ArcGIS JavaScript API library](http://js.arcgis.com/3.13/).
 
 ## Resources
 
-[ESRI JavaScript API](https://developers.arcgis.com/javascript/index.html)
+[ArcGIS JavaScript API](https://developers.arcgis.com/javascript/index.html)
 
 ## Contributing
 
