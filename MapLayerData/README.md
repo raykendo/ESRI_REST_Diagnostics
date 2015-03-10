@@ -16,7 +16,7 @@ Data that the Layer Property Extractor provides includes.
 - If the layer has attachments
 - If the layer supports statistics
 - If the layer supports advanced queries
-- If the layer has relationshipos
+- If the layer has relationships
 - If the layer comes from versioned data.
 
 ## Instructions
