@@ -57,7 +57,7 @@
 	}
 	// collect values from the data, and send the data off for testing.
 	function responseSearch(url, data, myTest) {
-		var fieldList = ["name", "description", "displayField", "fields.name", "fields.alias", "mapName", "layers.name", "documentInfo.Title", "documentInfo.Comments", "documentInfo.Subject", "documentInfo.Category", "documentInfo.Keywords", "folder", "service.name"];
+		var fieldList = ["name", "description", "displayField", "fields.name", "fields.alias", "mapName", "layers.name", "documentInfo.Title", "documentInfo.Comments", "documentInfo.Subject", "documentInfo.Category", "documentInfo.Keywords", "folders", "services.name", "services.type"];
 		fieldList.forEach(function (field) {
 			var result = getFinalVal(field.split("."), data);
 			if (result == null) { return; }
