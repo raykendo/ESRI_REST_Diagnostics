@@ -4,27 +4,28 @@ A list of JavaScript bookmarklets that can be used to test ArcGIS Server Map Ser
 
 ## Features
 
-The bookmarklets provided add extra information to the ArcGIS Server REST endpoint pages. They work by scraping the underlying data and adding the results to the current HTML REST Service page. Some of features include:
+The bookmarklets provided add extra information to the ArcGIS Server REST endpoint pages. They work by collecting the underlying data and adding the results to the current HTML REST Service page. Some of features include:
 
+- Anywhere
+  - [Search REST Services for specific field or text string](https://github.com/raykendo/ESRI_REST_Diagnostics/tree/master/RestSearch)
 - Folder level:
   - [Extract Map Service data for each Map and Feature Service in the folder.](https://github.com/raykendo/ESRI_REST_Diagnostics/tree/master/MapServiceData)
   - [Compare Spatial References of all Map and Feature Services in a folder.](https://github.com/raykendo/ESRI_REST_Diagnostics/tree/master/SpatialRefCompare)
+  - [View Maps in a map service.](https://github.com/raykendo/ESRI_REST_Diagnostics/tree/master/MapViewer)
 - Map Service level:
   - [Extract Layer data for each layer in the service.](https://github.com/raykendo/ESRI_REST_Diagnostics/tree/master/MapLayerData)
   - [Get counts of features and shapes for each layer in the service.](https://github.com/raykendo/ESRI_REST_Diagnostics/tree/master/MapLayerCount)
   - [Test whether tiles have been built at different levels of detail in a tiled map service.](https://github.com/raykendo/ESRI_REST_Diagnostics/tree/master/TileTester)
+  - [View the service on a map.](https://github.com/raykendo/ESRI_REST_Diagnostics/tree/master/MapViewer)
 - Map Service Layer level
   - [Test each field for number of non-empty results.](https://github.com/raykendo/ESRI_REST_Diagnostics/tree/master/FieldTester)
   - [Test each field for content and see how fast the results return.](https://github.com/raykendo/ESRI_REST_Diagnostics/tree/master/FieldTester)
   - [Test each field with a coded value domain to see how many features have each coded value.](https://github.com/raykendo/ESRI_REST_Diagnostics/tree/master/DomainDataCounter)
 - Layer Query REST Page
-  - [Search REST Services for specific field or text string](https://github.com/raykendo/ESRI_REST_Diagnostics/tree/master/RestSearch)
+  - [Use a "Select By Attributes" like query helper to create Queries](  - [Search REST Services for specific field or text string](https://github.com/raykendo/ESRI_REST_Diagnostics/tree/master/QueryHelper))
   - [Adding ArcGIS REST API compliant geometry json to queries, based on a map of the map service.](https://github.com/raykendo/ESRI_REST_Diagnostics/tree/master/GeometryHelper)
 
-Some features in the works
-- Query Helper similar to Select By Attributes control in ArcMap
-- View a map on the REST Service page.
-- More items on request.
+More features will be made available on request.
   
 ## Instructions
 
