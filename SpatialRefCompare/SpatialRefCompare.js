@@ -5,13 +5,19 @@
 		colorhash = {},
 		i;
     function getFullLink(link) {
-        var newLink = "", wl = window.location;
-        if (link.indexOf(wl.protocol) === 0) { return link; }
-        newLink += wl.protocol + "//";
-        if (link.indexOf(wl.hostname) === 0) { return newLink + link; }
-        newLink += wl.hostname;
-        if (link.indexOf(wl.pathname) === 0) { return newLink + link; }
-        return newLink + wl.pathname + link;
+      var newLink = "", wl = window.location;
+      if (link.indexOf(wl.protocol) === 0) {
+        return link;
+      }
+      newLink += wl.protocol + "//";
+      if (link.indexOf(wl.hostname) === 0) {
+        return newLink + link;
+      }
+      newLink += wl.hostname;
+      if (link.indexOf(wl.pathname) === 0) {
+        return newLink + link;
+      }
+      return newLink + wl.pathname + link;
     }
     function getColor(item) {
         if (colorhash[item]) { return colorhash[item]; }
@@ -19,22 +25,22 @@
         return colorhash[item];
     }
     function getCompColor(item) {
-        var col = colorhash[item],
-            newcol = "",
-			mid = [col.substr(1,1),col.substr(3,1),col.substr(5,1)].sort()[1],
-			coltbl = "fedcba98".indexOf(mid) > -1 ? "0000000001234567" : "89abcdefffffffff", 
-			c; 
-		for (c = 0; c < col.length; c++) { 
-			newcol += c%2 === 1 ? coltbl[parseInt(col.substr(c,1), 16)] : col.substr(c, 1); 
-		} 
-		return newcol; 
-    }
+      var col = colorhash[item],
+        newcol = "",
+			  mid = [col.substr(1,1),col.substr(3,1),col.substr(5,1)].sort()[1],
+			  coltbl = "fedcba98".indexOf(mid) > -1 ? "0000000001234567" : "89abcdefffffffff",
+			  c;
+		for (c = 0; c < col.length; c++) {
+			newcol += c%2 === 1 ? coltbl[parseInt(col.substr(c,1), 16)] : col.substr(c, 1);
+		}
+		return newcol;
+  }
 	function srNode(sr) {
-		var n, 
-		val="&nbsp;No valid spatial reference available &nbsp;",
-		el = "span";
+		var val="&nbsp;No valid spatial reference available &nbsp;",
+		  el = "span",
+      n;
 		if (sr) {
-			val = sr.latestWkid || sr.wkid || sr.latestWkt || sr.wkt || noval;
+			val = sr.latestWkid || sr.wkid || sr.latestWkt || sr.wkt || val;
 			if (sr.latestWkid || sr.wkid) {
 				el = "a";
 			}
@@ -70,7 +76,7 @@
 				response = JSON.parse(response);
 				var node = srNode(response.spatialReference),
 					n2 = d.createElement("b");
-				n2.innerHTML = "&nbsp;" + response.singleFusedMapCache ? "tiled" : "dynamic";
+				n2.innerHTML = "&nbsp;" + response.singleFusedMapCache ? "tiled " : "dynamic ";
 				//alert("" + data.i + ": " + tags.length);
 				data.link.parentNode.appendChild(node);
 				data.link.parentNode.appendChild(n2);
@@ -79,7 +85,7 @@
 				}
 			});
 	}
-	
+
 	for (i = 0; i < tags.length; i++) {
 		// filter links for map service layers (index number at end);
 		if (/(map|feature|image|mobile)server\/?$/i.test(tags[i].href)) {
