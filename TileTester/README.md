@@ -12,7 +12,7 @@ This bookmarklet examines the links to the first and last tile in each level of 
 
 ### Installation
 
-Installation on the browser is as simple as adding a bookmark. From the [bookmarklet.html](https://github.com/raykendo/ESRI_REST_Diagnostics/blob/master/bookmarklets.html) page... 
+Installation on the browser is as simple as adding a bookmark. From the [bookmarklet.html](https://github.com/raykendo/ESRI_REST_Diagnostics/blob/master/bookmarklets.html) page...
 
 - Chrome: drag the anchor link to your browser toolbar.
 - Firefox: right-click on the link and select "Bookmark this link".
@@ -26,7 +26,7 @@ In the browser, navigate to the map service REST endpoint. From there, select th
 
 ## Requirements
 
-- Desktop browser (IE8+, Chrome, Firefox)
+- Desktop browser (IE9+, Chrome, Firefox)
 - Security settings that support bookmarklets.
 - Access to an ArcGIS Server REST endpoint in browser.
 
