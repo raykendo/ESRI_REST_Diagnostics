@@ -16,6 +16,10 @@
 			window.console && console.log(e);
 		}
 	}
+    function responseTime (timeValue) {
+        var timeDiff = Date.now() - timeValue;
+        return "" + (timeDiff > 1000 ? timeDiff / 1000 : timeDiff + "m") + "s"; 
+    }
 	function queryMe (f, nodes) { 
 		if (!f.length) { return; }
 		var field = f.shift(),
@@ -26,7 +30,7 @@
 			function (response) {
 				response = JSON.parse(response);
 				var tr = d.createElement("ul");
-				tr.innerHTML = "<li>" + ["<b>Features with values: </b>" + response.count + (!response.count ? "<b style=\"color:#f00;\"> !!!</b>":""), "<b>Response Time: </b>" + (Date.now() - timeCheck) + "ms"].join("</li><li>") + "</li>";
+				tr.innerHTML = "<li>" + ["<b>Features with values: </b>" + response.count + (!response.count ? "<b style=\"color:#f00;\"> !!!</b>":""), "<b>Response Time: </b>" + responseTime(timeCheck)].join("</li><li>") + "</li>";
 				node.appendChild(tr);
 				if (f.length) {	queryMe(f, nodes); }
 			});
