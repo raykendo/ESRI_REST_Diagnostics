@@ -40,7 +40,7 @@
 			labels = [].map.call(uls, function (node) { var h = node; while (h.previousSibling) { h = h.previousSibling; if (h.tagName === "B") break; } return h.innerHTML;}),
 			i;
 		for (i = uls.length - 1; i > -1; i--) {
-			if (labels[i] === "Fields: ") {
+			if (/^Fields\:/.test(labels[i])) {
 				return [].map.call(uls[i].children, function (j) {return j;});
 			}
 		}
