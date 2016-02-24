@@ -9,7 +9,7 @@
 			x.setRequestHeader("X-Requested-With", "XMLHttpRequest");
 			x.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 			x.onreadystatechange = function () {
-				x.readyState > 3 && callback && callback(x.responseText, x);
+				x.readyState > 3 && callback && callback(JSON.parse(x.responseText), x);
 			};
 			x.send(data)
 		} catch (e) {
@@ -24,8 +24,10 @@
 		if (!f.length) { return; }
 		var field = f.shift(),
 			node = nodes.shift(),
-			params = "/query?where=not+field+is+null+and+field+<>%27%27&returnGeometry=false&returnCountOnly=true&f=json".replace(/field/g, field.name),
-			timeCheck = Date.now();
+			params = "/query?where=not+field+is+null" + (field.type === "esriFieldTypeString" ? "+and+field+<>%27%27" : "") + "&returnGeometry=false&returnCountOnly=true&f=json",
+			timeCheck;
+        params = params.replace(/field/g, field.name);
+        timeCheck = Date.now();
 		ajax(url + params,
 			function (response) {
 				response = JSON.parse(response);
@@ -40,14 +42,13 @@
 			labels = [].map.call(uls, function (node) { var h = node; while (h.previousSibling) { h = h.previousSibling; if (h.tagName === "B") break; } return h.innerHTML;}),
 			i;
 		for (i = uls.length - 1; i > -1; i--) {
-			if (labels[i] === "Fields: ") {
+			if (/^Fields\:/.test(labels[i])) {
 				return [].map.call(uls[i].children, function (j) {return j;});
 			}
 		}
 		return null;
 	}
 	function onLoad(response) {
-		response = JSON.parse(response);
 		if (response.fields) {
 			// run query
 			queryMe(response.fields, getFieldList());
