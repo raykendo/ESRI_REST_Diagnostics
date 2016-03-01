@@ -18,14 +18,17 @@
 	}
     function responseTime (timeValue) {
         var timeDiff = Date.now() - timeValue;
-        return "" + (timeDiff > 1000 ? timeDiff / 1000 : timeDiff + "m") + "s"; 
+        return "" + (timeDiff > 1000 ? timeDiff / 1000 : timeDiff + "m") + "s";
     }
-	function queryMe (f, nodes) { 
+	function queryMe (f, nodes) {
 		if (!f.length) { return; }
 		var field = f.shift(),
 			node = nodes.shift(),
-			params = "/query?where=not+field+is+null+and+field+<>%27%27&returnGeometry=false&returnCountOnly=true&f=json".replace(/field/g, field.name),
+			params = "/query?where=not+field+is+null&returnGeometry=false&returnCountOnly=true&f=json".replace(/field/g, field.name),
 			timeCheck = Date.now();
+    if (field.type === "esriFieldTypeString") {
+      params = params.replace("is+null", "is+null+and+" + field.name + "+<>%27%27");
+    }
 		ajax(url + params,
 			function (response) {
 				response = JSON.parse(response);
@@ -40,7 +43,7 @@
 			labels = [].map.call(uls, function (node) { var h = node; while (h.previousSibling) { h = h.previousSibling; if (h.tagName === "B") break; } return h.innerHTML;}),
 			i;
 		for (i = uls.length - 1; i > -1; i--) {
-			if (labels[i] === "Fields: ") {
+			if (/^Fields\:/.test(labels[i])) {
 				return [].map.call(uls[i].children, function (j) {return j;});
 			}
 		}
@@ -53,7 +56,7 @@
 			queryMe(response.fields, getFieldList());
 		}
 	}
-    
+
 	if (/\d+\/?$/.test(url)) {
 		ajax(url + "?f=json", onLoad);
 	} else {
