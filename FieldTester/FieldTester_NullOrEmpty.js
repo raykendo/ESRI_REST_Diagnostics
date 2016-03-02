@@ -1,10 +1,11 @@
 (function () {
+    "use strict";
     var url = window.location.href,
 		d = document;
 	// ajax function from https://gist.github.com/Xeoncross/7663273
 	function ajax(u, callback, data, x) {
 		try {
-			x = new(this.XMLHttpRequest || ActiveXObject)("MSXML2.XMLHTTP.3.0");
+			x = new(window.XMLHttpRequest || ActiveXObject)("MSXML2.XMLHTTP.3.0");
 			x.open(data ? "POST" : "GET", u, 1);
 			x.setRequestHeader("X-Requested-With", "XMLHttpRequest");
 			x.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
