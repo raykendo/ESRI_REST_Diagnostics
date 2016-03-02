@@ -41,7 +41,7 @@
 		div.appendChild(listR);
 		listF.onchange = function () {
 			var val = listF.value;
-			ajax(url + "?where=field+like+%27%25%27&returnGeometry=false&outFields=field&orderByFields=field&returnDistinctValues=true&f=json".replace(/field/g, val), function (res) {
+			ajax(url + "?where=1%3D1&returnGeometry=false&outFields=field&orderByFields=field&returnDistinctValues=true&f=json".replace(/field/g, val), function (res) {
 				listR.innerHTML = [].map.call(res.features, function (feature) {
 					return ["<option value=\"", feature.attributes[val], "\">", feature.attributes[val], "</option>"].join("");
 				});
