@@ -32,7 +32,7 @@ More features will be made available on request.
 
 Installation on the browser is as simple as adding a bookmark. From the [bookmarklet.html](https://github.com/raykendo/ESRI_REST_Diagnostics/blob/master/bookmarklets.html) page... 
 
-- Chrome: drag the anchor link to your browser toolbar.
+- Chrome: drag the anchor link to your browser toolbar. [Install to Chrome illustration](https://github.com/raykendo/ESRI_REST_Diagnostics/blob/master/images/Install_Chrome.gif "Installing bookmarklets on Chrome")
 - Firefox: right-click on the link and select "Bookmark this link".
 - IE: right-click on the link and select "Add to Favorites".
 - Safari: untested.
