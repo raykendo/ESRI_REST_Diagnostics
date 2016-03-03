@@ -33,8 +33,8 @@ More features will be made available on request.
 Installation on the browser is as simple as adding a bookmark. From the [bookmarklet.html](https://github.com/raykendo/ESRI_REST_Diagnostics/blob/master/bookmarklets.html) page... 
 
 - Chrome: drag the anchor link to your browser toolbar. ![Install to Chrome illustration](https://github.com/raykendo/ESRI_REST_Diagnostics/blob/master/images/Install_Chrome.gif "Installing bookmarklets on Chrome")
-- Firefox: right-click on the link and select "Bookmark this link".
-- IE: right-click on the link and select "Add to Favorites".
+- Firefox: right-click on the link and select "Bookmark this link". ![Install to Firefox illustration](https://github.com/raykendo/ESRI_REST_Diagnostics/blob/master/images/Install_Firefox.gif "Installing bookmarklets on Firefox")
+- IE: right-click on the link and select "Add to Favorites". ![Install to Internet Explorer illustration](https://github.com/raykendo/ESRI_REST_Diagnostics/blob/master/images/Install_IE.gif "Installing bookmarklets on Internet Explorer")
 - Safari: untested.
 - Opera: untested.
 
@@ -47,7 +47,7 @@ Each tool as its own basic use policy. They all involve navigating your web brow
 - Desktop browser (IE8+, Chrome, Firefox)
 - Security settings that support bookmarklets.
 - Access to an ArcGIS Server REST endpoint in browser.
-- Some tools require access to [ArcGIS JavaScript API library](http://js.arcgis.com/3.13/).
+- Some tools require access to [ArcGIS JavaScript API library](http://js.arcgis.com/3.15/).
 
 ## Resources
 
