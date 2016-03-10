@@ -6,8 +6,6 @@ A list of JavaScript bookmarklets that can be used to test ArcGIS Server Map Ser
 
 The bookmarklets provided add extra information to the ArcGIS Server REST endpoint pages. They work by collecting the underlying data and adding the results to the current HTML REST Service page. Some of features include:
 
-- Anywhere
-  - [Search REST Services for specific field or text string](https://github.com/raykendo/ESRI_REST_Diagnostics/tree/master/RestSearch)
 - Folder level:
   - [Extract Map Service data for each Map and Feature Service in the folder.](https://github.com/raykendo/ESRI_REST_Diagnostics/tree/master/MapServiceData)
   - [Compare Spatial References of all Map and Feature Services in a folder.](https://github.com/raykendo/ESRI_REST_Diagnostics/tree/master/SpatialRefCompare)
@@ -21,8 +19,9 @@ The bookmarklets provided add extra information to the ArcGIS Server REST endpoi
   - [Test each field for number of non-empty results.](https://github.com/raykendo/ESRI_REST_Diagnostics/tree/master/FieldTester)
   - [Test each field for content and see how fast the results return.](https://github.com/raykendo/ESRI_REST_Diagnostics/tree/master/FieldTester)
   - [Test each field with a coded value domain to see how many features have each coded value.](https://github.com/raykendo/ESRI_REST_Diagnostics/tree/master/DomainDataCounter)
-- Layer Query REST Page
-  - [Use a "Select By Attributes" like query helper to create Queries](  - [Search REST Services for specific field or text string](https://github.com/raykendo/ESRI_REST_Diagnostics/tree/master/QueryHelper))
+- Miscellaneous
+  - [Search REST Services for specific field or text string](https://github.com/raykendo/ESRI_REST_Diagnostics/tree/master/RestSearch)
+  - [Use a "Select By Attributes" like query helper to create Queries](https://github.com/raykendo/ESRI_REST_Diagnostics/tree/master/QueryHelper)
   - [Adding ArcGIS REST API compliant geometry json to queries, based on a map of the map service.](https://github.com/raykendo/ESRI_REST_Diagnostics/tree/master/GeometryHelper)
 
 More features will be made available on request.
@@ -33,9 +32,9 @@ More features will be made available on request.
 
 Installation on the browser is as simple as adding a bookmark. From the [bookmarklet.html](https://github.com/raykendo/ESRI_REST_Diagnostics/blob/master/bookmarklets.html) page... 
 
-- Chrome: drag the anchor link to your browser toolbar.
-- Firefox: right-click on the link and select "Bookmark this link".
-- IE: right-click on the link and select "Add to Favorites".
+- Chrome: drag the anchor link to your browser toolbar. ![Install to Chrome illustration](https://github.com/raykendo/ESRI_REST_Diagnostics/blob/master/images/Install_Chrome.gif "Installing bookmarklets on Chrome")
+- Firefox: right-click on the link and select "Bookmark this link". ![Install to Firefox illustration](https://github.com/raykendo/ESRI_REST_Diagnostics/blob/master/images/Install_Firefox.gif "Installing bookmarklets on Firefox")
+- IE: right-click on the link and select "Add to Favorites". ![Install to Internet Explorer illustration](https://github.com/raykendo/ESRI_REST_Diagnostics/blob/master/images/Install_IE.gif "Installing bookmarklets on Internet Explorer")
 - Safari: untested.
 - Opera: untested.
 
@@ -48,7 +47,7 @@ Each tool as its own basic use policy. They all involve navigating your web brow
 - Desktop browser (IE8+, Chrome, Firefox)
 - Security settings that support bookmarklets.
 - Access to an ArcGIS Server REST endpoint in browser.
-- Some tools require access to [ArcGIS JavaScript API library](http://js.arcgis.com/3.13/).
+- Some tools require access to [ArcGIS JavaScript API library](http://js.arcgis.com/3.15/).
 
 ## Resources
 

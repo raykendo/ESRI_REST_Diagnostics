@@ -1,10 +1,11 @@
 (function () {
+    "use strict";
     var url = window.location.href,
 		d = document;
 	// ajax function from https://gist.github.com/Xeoncross/7663273
 	function ajax(u, callback, data, x) {
 		try {
-			x = new(this.XMLHttpRequest || ActiveXObject)("MSXML2.XMLHTTP.3.0");
+			x = new(window.XMLHttpRequest || ActiveXObject)("MSXML2.XMLHTTP.3.0");
 			x.open(data ? "POST" : "GET", u, 1);
 			x.setRequestHeader("X-Requested-With", "XMLHttpRequest");
 			x.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -18,16 +19,17 @@
 	}
     function responseTime (timeValue) {
         var timeDiff = Date.now() - timeValue;
-        return "" + (timeDiff > 1000 ? timeDiff / 1000 : timeDiff + "m") + "s"; 
+        return "" + (timeDiff > 1000 ? timeDiff / 1000 : timeDiff + "m") + "s";
     }
-	function queryMe (f, nodes) { 
+	function queryMe (f, nodes) {
 		if (!f.length) { return; }
 		var field = f.shift(),
 			node = nodes.shift(),
-			params = "/query?where=not+field+is+null" + (field.type === "esriFieldTypeString" ? "+and+field+<>%27%27" : "") + "&returnGeometry=false&returnCountOnly=true&f=json",
-			timeCheck;
-        params = params.replace(/field/g, field.name);
-        timeCheck = Date.now();
+			params = "/query?where=not+field+is+null&returnGeometry=false&returnCountOnly=true&f=json".replace(/field/g, field.name),
+			timeCheck = Date.now();
+        if (field.type === "esriFieldTypeString") {
+            params = params.replace("is+null", "is+null+and+" + field.name + "+<>%27%27");
+        }
 		ajax(url + params,
 			function (response) {
 				response = JSON.parse(response);
@@ -54,7 +56,7 @@
 			queryMe(response.fields, getFieldList());
 		}
 	}
-    
+
 	if (/\d+\/?$/.test(url)) {
 		ajax(url + "?f=json", onLoad);
 	} else {

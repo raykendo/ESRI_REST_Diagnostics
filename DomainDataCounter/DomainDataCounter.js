@@ -17,7 +17,7 @@
 		}
 	}
 
-	function queryMe(f, nodes, tr) { 
+	function queryMe(f, nodes, tr) {
 		if (!f.length) { return; }
 		if (!tr) {
 			var node = nodes.shift();
@@ -34,7 +34,7 @@
 					var li = d.createElement("li");
 					li.innerHTML = ["<b>", item.name, ": </b>", response.count, (!response.count ? "<b style=\"color:#f00;\"> !!!</b>" : "")].join("");
 					tr.appendChild(li);
-					if (f[0].length) {	queryMe(f, nodes, tr); } 
+					if (f[0].length) {	queryMe(f, nodes, tr); }
 					else {
 						f.shift();
 						if (f.length) {
@@ -43,21 +43,21 @@
 					}
 				});
 		}
-		
+
 	}
 	function getFieldList() {
 		var uls = d.getElementsByTagName("ul"),
 			labels = [].map.call(uls, function (node) { var h = node; while (h.previousSibling) { h = h.previousSibling; if (h.tagName === "B") break; } return h.innerHTML;}),
 			i;
 		for (i = uls.length - 1; i > -1; i--) {
-			if (labels[i] === "Fields: ") {
+			if (/^Fields\:/.test(labels[i])) {
 				return [].map.call(uls[i].children, function (j) {return j;});
 			}
 		}
 		return null;
 	}
 	function onLoad(response) {
-		var fieldNodes, fields = [], i;
+		var fieldNodes, fields = [], i, field;
 		response = JSON.parse(response);
 		if (response.fields) {
 			fieldNodes = getFieldList();
@@ -83,7 +83,7 @@
 			queryMe(fields, fieldNodes, null);
 		}
 	}
-    
+
 	if (/\d+\/?$/.test(url)) {
 		ajax(url + "?f=json", onLoad);
 	} else {
