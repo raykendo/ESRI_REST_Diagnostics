@@ -17,6 +17,11 @@ These bookmarklets supply simple default values for fields in the ArcGIS Server 
   - where: 1=1
   - outFields: *
   - returnGeometry: false
+- *Select Distinct*
+  - where: 1=1
+  - returnGeometry: false
+  - outFields: value selected from a dropdown selection
+  - returnDistinctValues: true
 
 ## Instructions
 
