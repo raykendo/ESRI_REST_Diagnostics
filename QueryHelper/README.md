@@ -10,7 +10,7 @@ The bookmarklet renders a control on the side of the page that lists field names
 
 ### Installation
 
-Installation on the browser is as simple as adding a bookmark. From the [bookmarklet.html](https://github.com/raykendo/ESRI_REST_Diagnostics/blob/master/bookmarklets.html) page... 
+Installation on the browser is as simple as adding a bookmark. From the [bookmarklet.html](https://github.com/raykendo/ESRI_REST_Diagnostics/blob/master/bookmarklets.html) page...
 
 - Chrome: drag the anchor link to your browser toolbar.
 - Firefox: right-click on the link and select "Bookmark this link".
@@ -26,14 +26,14 @@ The bookmarklet will show a form in the upper right hand corner that lists the f
 
 ## Requirements
 
-- Desktop browser (IE8+, Chrome, Firefox)
+- Desktop browser (IE10+, Chrome, Firefox)
 - Security settings that support bookmarklets.
 - Access to an ArcGIS Server REST endpoint in browser.
 
 ## Notes
 
 - Currently untested on Safari. Please give me feedback if you try it.
-- Not tested on mobile/tablet browsers, since I'm not sure how bookmarklets work with those. 
+- Not tested on mobile/tablet browsers, since I'm not sure how bookmarklets work with those.
 
 ## Contributing
 
