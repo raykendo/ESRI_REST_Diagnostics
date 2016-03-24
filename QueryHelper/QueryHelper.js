@@ -54,28 +54,30 @@
 		return div;
 	}
 	function setActive(value) {
-		// get cursor position
-		var oldVal = active.value.substring(0), 
-			iCaretPos = oldVal.length;
-		active.focus();
-		if (d.selection) {
-			var oSel = d.selection.createRange();
-			oSel.moveStart("character", -active.value.length);
-			iCaretPos = oSel.text.length;
-		} else if ("selectionStart" in active) {
-			iCaretPos = active.selectionStart;
-		}
-		// insert clicked text
-		active.value = oldVal.substring(0, iCaretPos) + value + oldVal.substring(iCaretPos);
-		
-		// reset cursor position
-		iCaretPos += value.length - (["()", "''"].indexOf(value) > -1);
-		if (active.createTextRange) {
-			var range = active.createTextRange();
-            range.move("character", iCaretPos);
-            range.select();
-		} else if ("selectionStart" in active) {
-			active.setSelectionRange(iCaretPos, iCaretPos);
+		if (active !== undefined) {
+			// get cursor position
+			var oldVal = active.value.substring(0),
+				iCaretPos = oldVal.length;
+			active.focus();
+			if (d.selection) {
+				var oSel = d.selection.createRange();
+				oSel.moveStart("character", -active.value.length);
+				iCaretPos = oSel.text.length;
+			} else if ("selectionStart" in active) {
+				iCaretPos = active.selectionStart;
+			}
+			// insert clicked text
+			active.value = oldVal.substring(0, iCaretPos) + value + oldVal.substring(iCaretPos);
+
+			// reset cursor position
+			iCaretPos += value.length - (["()", "''"].indexOf(value) > -1);
+			if (active.createTextRange) {
+				var range = active.createTextRange();
+				range.move("character", iCaretPos);
+				range.select();
+			} else if ("selectionStart" in active) {
+				active.setSelectionRange(iCaretPos, iCaretPos);
+			}
 		}
 	}
     function onLoad(response) {
