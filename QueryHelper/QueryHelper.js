@@ -26,23 +26,24 @@
 	}
 	function build(fields) {
 		var div = d.createElement("div"),
-			listF = d.createElement("select"),
-			listR = d.createElement("select"),
+			html_select_fields = d.createElement("select"),
+			html_select_values = d.createElement("select"),
 			btns = d.createElement("div");
 		div.setAttribute("style", "position:fixed;top:10%;right:0;width:35%;padding:5px;background:#fff;overflow:auto;");
 		div.innerHTML = "<button style=\"float:right;\" onclick=\"this.parentNode.parentNode.removeChild(this.parentNode);\">Close</button><b>Query Builder</b><br />";
 		d.body.appendChild(div);
-		listF.setAttribute("size", "10");
-		listF.innerHTML = fields.map(function (field) {
+		html_select_fields.setAttribute("size", "10");
+		html_select_fields.innerHTML = fields.map(function (field) {
 			return ["<option value=\"", field.name, "\">", field.alias, "</option>"].join("");
 		}).join("");
-		div.appendChild(listF);
-		listR.setAttribute("size", "10");
-		div.appendChild(listR);
-		listF.onchange = function () {
-			var val = listF.value;
+		div.appendChild(html_select_fields);
+		html_select_values.setAttribute("size", "10");
+		div.appendChild(html_select_values);
+		html_select_fields.onchange = function () {
+			var val = html_select_fields.value;
+			
 			ajax(url + "?where=1%3D1&returnGeometry=false&outFields=field&orderByFields=field&returnDistinctValues=true&f=json".replace(/field/g, val), function (res) {
-				listR.innerHTML = [].map.call(res.features, function (feature) {
+				html_select_values.innerHTML = [].map.call(res.features, function (feature) {
 					return ["<option value=\"", feature.attributes[val], "\">", feature.attributes[val], "</option>"].join("");
 				});
 			});
@@ -54,33 +55,35 @@
 		return div;
 	}
 	function setActive(value) {
-		// get cursor position
-		var oldVal = active.value.substring(0), 
-			iCaretPos = oldVal.length;
-		active.focus();
-		if (d.selection) {
-			var oSel = d.selection.createRange();
-			oSel.moveStart("character", -active.value.length);
-			iCaretPos = oSel.text.length;
-		} else if ("selectionStart" in active) {
-			iCaretPos = active.selectionStart;
-		}
-		// insert clicked text
-		active.value = oldVal.substring(0, iCaretPos) + value + oldVal.substring(iCaretPos);
-		
-		// reset cursor position
-		iCaretPos += value.length - (["()", "''"].indexOf(value) > -1);
-		if (active.createTextRange) {
-			var range = active.createTextRange();
-            range.move("character", iCaretPos);
-            range.select();
-		} else if ("selectionStart" in active) {
-			active.setSelectionRange(iCaretPos, iCaretPos);
+		if (active !== undefined) {
+			// get cursor position
+			var oldVal = active.value.substring(0),
+				iCaretPos = oldVal.length;
+			active.focus();
+			if (d.selection) {
+				var oSel = d.selection.createRange();
+				oSel.moveStart("character", -active.value.length);
+				iCaretPos = oSel.text.length;
+			} else if ("selectionStart" in active) {
+				iCaretPos = active.selectionStart;
+			}
+			// insert clicked text
+			active.value = oldVal.substring(0, iCaretPos) + value + oldVal.substring(iCaretPos);
+
+			// reset cursor position
+			iCaretPos += value.length - (["()", "''"].indexOf(value) > -1);
+			if (active.createTextRange) {
+				var range = active.createTextRange();
+				range.move("character", iCaretPos);
+				range.select();
+			} else if ("selectionStart" in active) {
+				active.setSelectionRange(iCaretPos, iCaretPos);
+			}
 		}
 	}
     function onLoad(response) {
 		var node = build(response.fields);
-		listenAll(node, "select", "onclick", function (evt) {
+		listenAll(node, "select", "ondblclick", function (evt) {
 			setActive(evt.currentTarget.value);
 		});
 		listenAll(node, "button.sql", "onclick", function (evt) {
