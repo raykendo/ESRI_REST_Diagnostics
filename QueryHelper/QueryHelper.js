@@ -80,7 +80,7 @@
 	}
     function onLoad(response) {
 		var node = build(response.fields);
-		listenAll(node, "select", "onclick", function (evt) {
+		listenAll(node, "select", "ondblclick", function (evt) {
 			setActive(evt.currentTarget.value);
 		});
 		listenAll(node, "button.sql", "onclick", function (evt) {
