@@ -43,7 +43,9 @@
 			var val = listF.value;
 			ajax(url + "?where=1%3D1&returnGeometry=false&outFields=field&orderByFields=field&returnDistinctValues=true&f=json".replace(/field/g, val), function (res) {
 				listR.innerHTML = [].map.call(res.features, function (feature) {
-					return ["<option value=\"", feature.attributes[val], "\">", feature.attributes[val], "</option>"].join("");
+					feature_value = isNaN(feature.attributes[val] * 1) ? "'" + feature.attributes[val] + "'" : feature.attributes[val];
+					feature_text = feature.attributes[val];
+					return ["<option value=\"", feature_value, "\">", feature_text, "</option>"].join("");
 				});
 			});
 		};
@@ -80,7 +82,7 @@
 	}
     function onLoad(response) {
 		var node = build(response.fields);
-		listenAll(node, "select", "onclick", function (evt) {
+		listenAll(node, "select", "ondblclick", function (evt) {
 			setActive(evt.currentTarget.value);
 		});
 		listenAll(node, "button.sql", "onclick", function (evt) {
