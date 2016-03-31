@@ -31,6 +31,13 @@
 			btns = d.createElement("div");
 		div.setAttribute("style", "position:fixed;top:10%;right:0;width:35%;padding:5px;background:#fff;overflow:auto;");
 		div.innerHTML = "<button style=\"float:right;\" onclick=\"this.parentNode.parentNode.removeChild(this.parentNode);\">Close</button><b>Query Builder</b><br />";
+
+		var clear_button = d.createElement("button");
+		clear_button.textContent = "Clear";
+		clear_button.style = "float: right; margin: 10px -54px 0px 0px;";
+		clear_button.onclick = clearActive;
+		div.appendChild(clear_button);
+		
 		d.body.appendChild(div);
 		listF.setAttribute("size", "10");
 		listF.innerHTML = fields.map(function (field) {
@@ -52,6 +59,12 @@
 		});
 		div.appendChild(btns);
 		return div;
+	}
+	function clearActive() {
+		if (active !== undefined)
+		{
+			active.value = "";
+		}
 	}
 	function setActive(value) {
 		if (active !== undefined) {
