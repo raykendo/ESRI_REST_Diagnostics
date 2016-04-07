@@ -1,0 +1,40 @@
+{
+	"Map Folder Level:": {
+		"contents": {
+			"Spatial Reference Comparison": "SpatialRefCompare.min.js",
+			"MapService Data Extractor v 0.3": "MapServiceData.min.js",
+			"Map Viewer v. 0.5": "MapViewer.min.js"
+		}
+	},
+	"Map Service Level:": {
+		"contents": {
+			"Layer Property Extractor v. 0.1": "MapLayerData.min.js",
+			"Layer Feature Counter v. 0.1": "MapLayerCount.min.js",
+			"Tiled Service Tester v. 0.1": "TileTester.min.js",
+			"Map Viewer v. 0.5": "MapViewer.min.js"
+		}
+	},
+	"Map Layer Level:": {
+		"contents": {
+			"Field Value Tester (null test only) v. 0.4": "FieldTester.min.js",
+			"Populated Field Value Tester (null or empty string) v. 0.9": "FieldTester_NullOrEmpty.min.js",
+			"Domain Data Counter v. 0.3": "DomainDataCounter.min.js"
+		}
+	},
+	"Query Page Level:": {
+		"contents": {
+			"Select By Attributes Query Helper v. 0.3": "QueryHelper.min.js",
+			"Give me all Query Helper": "GiveMeAll_QueryHelper.min.js",
+			"Count them Up Query Helper": "CountThemUp_QueryHelper.min.js",
+			"Everything But Geometry Query Helper": "AllNoGeo_QueryHelper.min.js",
+			"Select Distinct Query Helper": "SelectDistinct_QueryHelper.min.js"
+		}
+	},
+	"Miscellaneous:": {
+		"contents": {
+			"Rest Search v 0.5": "RestSearch.min.js",
+			"Print Task Made Easy BETA": "PrintTaskMadeEasy.min.js",
+			"Geometry Helper": "GeometryHelper.min.js"
+		}
+	}
+}

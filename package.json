@@ -1,0 +1,28 @@
+{
+  "name": "esri_rest_diagnostics",
+  "version": "1.0.0",
+  "description": "ESRI Rest Diagnostics - A bookmarklet set to collect data from and to test ArcGIS Server REST Services.",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "gulp": "^3.9.1", 
+	"gulp-bookmarklet": "^1.0.0",
+	"netscape-bookmarks": "^0.0.0",
+    "del": "^2.2.0", 
+	"through2": "^2.0.1", 
+	"vinyl": "^1.1.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/raykendo/ESRI_REST_Diagnostics.git"
+  },
+  "author": "Ken Doman",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/raykendo/ESRI_REST_Diagnostics/issues"
+  },
+  "homepage": "http://raykendo.github.io/ESRI_REST_Diagnostics"
+}
