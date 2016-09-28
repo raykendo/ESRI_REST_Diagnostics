@@ -1,16 +1,16 @@
-# Field Tester (ESRI REST Diagnostics) 
+# Field Tester (ESRI REST Diagnostics)
 
 Bookmarklets to test for field values populated by data.
 
 ## Features
 
-The bookmarklets count the number of features with values and return server response times for each field within an ArcGIS Server Map Service or Feature Service layer. The first tests for non-null data, while the second also checks for empty strings. You can use these bookmarklets to test data integrity and of each field, and roughly expected return times for queries. 
+The bookmarklets count the number of features with values and return server response times for each field within an ArcGIS Server Map Service or Feature Service layer. The first tests for non-null data, while the second also checks for empty strings. You can use these bookmarklets to test data integrity and of each field, and roughly expected return times for queries.
 
 ## Instructions
 
 ### Installation
 
-Installation on the browser is as simple as adding a bookmark. From the [bookmarklet.html](https://github.com/raykendo/ESRI_REST_Diagnostics/blob/master/bookmarklets.html) page... 
+Installation on the browser is as simple as adding a bookmark. From the [ESRI Rest Diagnostics](http://raykendo.github.io/ESRI_REST_Diagnostics/) page... 
 
 - Chrome: drag the anchor link to your browser toolbar.
 - Firefox: right-click on the link and select "Bookmark this link".
@@ -33,7 +33,7 @@ The bookmarklets systematically queries for the count of each field value that i
 ## Notes
 
 - Currently untested on Safari. Please give me feedback if you try it.
-- Not tested on mobile/tablet browsers, since I'm not sure how bookmarklets work with those. 
+- Not tested on mobile/tablet browsers, since I'm not sure how bookmarklets work with those.
 
 ## Contributing
 

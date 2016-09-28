@@ -10,7 +10,7 @@ This bookmarklet loads an ArcGIS JavaScript API based map on the REST Service pa
 
 ### Installation
 
-Installation on the browser is as simple as adding a bookmark. From the [bookmarklet.html](https://github.com/raykendo/ESRI_REST_Diagnostics/blob/master/bookmarklets.html) page... 
+Installation on the browser is as simple as adding a bookmark. From the [ESRI Rest Diagnostics](http://raykendo.github.io/ESRI_REST_Diagnostics/) page...
 
 - Chrome: drag the anchor link to your browser toolbar.
 - Firefox: right-click on the link and select "Bookmark this link".

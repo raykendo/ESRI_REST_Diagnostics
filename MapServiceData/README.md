@@ -6,7 +6,7 @@ A JavaScript bookmarklet for viewing all relevant map service data at a folder l
 
 This bookmarklet examines each map service whose link you can see, and lists data about each map service without having to navigate to it.
 
-Map Service data displayed includes 
+Map Service data displayed includes
 
 - Descriptions
 - Service Descriptions
@@ -27,7 +27,7 @@ Map Service data displayed includes
 
 ### Installation
 
-Installation on the browser is as simple as adding a bookmark. From the [bookmarklet.html](https://github.com/raykendo/ESRI_REST_Diagnostics/blob/master/bookmarklets.html) page... 
+Installation on the browser is as simple as adding a bookmark. From the [ESRI Rest Diagnostics](http://raykendo.github.io/ESRI_REST_Diagnostics/) page...
 
 - Chrome: drag the anchor link to your browser toolbar.
 - Firefox: right-click on the link and select "Bookmark this link".

@@ -1,4 +1,4 @@
-# Layer Feature Counter (ESRI REST Diagnostics) 
+# Layer Feature Counter (ESRI REST Diagnostics)
 
 A bookmarklet to get feature result counts from layers in a map service.
 
@@ -10,7 +10,7 @@ The bookmarklet queries each layer in the map service, getting a count of non-nu
 
 ### Installation
 
-Installation on the browser is as simple as adding a bookmark. From the [bookmarklet.html](https://github.com/raykendo/ESRI_REST_Diagnostics/blob/master/bookmarklets.html) page... 
+Installation on the browser is as simple as adding a bookmark. From the [ESRI Rest Diagnostics](http://raykendo.github.io/ESRI_REST_Diagnostics/) page... 
 
 - Chrome: drag the anchor link to your browser toolbar.
 - Firefox: right-click on the link and select "Bookmark this link".
@@ -33,7 +33,7 @@ The tool adds lists after the links to each layer, listing the number of results
 ## Notes
 
 - Currently untested on Safari. Please give me feedback if you try it.
-- Not tested on mobile/tablet browsers, since I'm not sure how bookmarklets work with those. 
+- Not tested on mobile/tablet browsers, since I'm not sure how bookmarklets work with those.
 
 ## Contributing
 
