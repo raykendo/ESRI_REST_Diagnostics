@@ -32,11 +32,11 @@ More features will be made available on request.
 
 Installation on the browser is as simple as adding a bookmark. From the [ESRI Rest Diagnostics](http://raykendo.github.io/ESRI_REST_Diagnostics/) page...
 
-- Chrome: drag the anchor link to your browser toolbar. ![Install to Chrome illustration](https://github.com/raykendo/ESRI_REST_Diagnostics/blob/master/images/Install_Chrome.gif "Installing bookmarklets on Chrome")
-- Firefox: right-click on the link and select "Bookmark this link". ![Install to Firefox illustration](https://github.com/raykendo/ESRI_REST_Diagnostics/blob/master/images/Install_Firefox.gif "Installing bookmarklets on Firefox")
-- IE: right-click on the link and select "Add to Favorites". ![Install to Internet Explorer illustration](https://github.com/raykendo/ESRI_REST_Diagnostics/blob/master/images/Install_IE.gif "Installing bookmarklets on Internet Explorer")
+- Chrome: drag the anchor link to your browser toolbar. ![Install to Chrome illustration](images/Install_Chrome.gif "Installing bookmarklets on Chrome")
+- Firefox: right-click on the link and select "Bookmark this link". ![Install to Firefox illustration](images/Install_Firefox.gif "Installing bookmarklets on Firefox")
+- IE: right-click on the link and select "Add to Favorites". ![Install to Internet Explorer illustration](images/Install_IE.gif "Installing bookmarklets on Internet Explorer")
 - Safari: untested.
-- Opera: drag the anchor link to your browser toolbar. ![Install to Opera illustration](https://github.com/raykendo/ESRI_REST_Diagnostics/blob/master/images/Install_Opera.gif "Installing bookmarklets on Opera")
+- Opera: drag the anchor link to your browser toolbar. ![Install to Opera illustration](images/Install_Opera.gif "Installing bookmarklets on Opera")
 
 ### Basic Use
 
