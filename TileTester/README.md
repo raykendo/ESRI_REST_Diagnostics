@@ -18,7 +18,7 @@ Installation on the browser is as simple as adding a bookmark. From the [ESRI Re
 - Firefox: right-click on the link and select "Bookmark this link".
 - IE: right-click on the link and select "Add to Favorites".
 - Safari: untested.
-- Opera: untested.
+- Opera: drag the anchor link to your browser toolbar. 
 
 ### Basic Use
 
