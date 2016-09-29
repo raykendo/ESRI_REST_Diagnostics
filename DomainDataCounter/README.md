@@ -1,4 +1,4 @@
-# Domain Data Counter (ESRI REST Diagnostics) 
+# Domain Data Counter (ESRI REST Diagnostics)
 
 Bookmarklet to test ArcGIS REST Service fields with domains, counting the number of features with each domain value assigned to a field.
 
@@ -10,7 +10,7 @@ This bookmarklet scans an ArcGIS Server MapService layer for fields that have do
 
 ### Installation
 
-Installation on the browser is as simple as adding a bookmark. From the [bookmarklet.html](https://github.com/raykendo/ESRI_REST_Diagnostics/blob/master/bookmarklets.html) page... 
+Installation on the browser is as simple as adding a bookmark. From the [ESRI Rest Diagnostics](http://raykendo.github.io/ESRI_REST_Diagnostics/) page... 
 
 - Chrome: drag the anchor link to your browser toolbar.
 - Firefox: right-click on the link and select "Bookmark this link".
@@ -33,7 +33,7 @@ The bookmarklets requests field properties for the layer and finds fields with d
 ## Notes
 
 - Currently untested on Safari. Please give me feedback if you try it.
-- Not tested on mobile/tablet browsers, since I'm not sure how bookmarklets work with those. 
+- Not tested on mobile/tablet browsers, since I'm not sure how bookmarklets work with those.
 
 ## Contributing
 
